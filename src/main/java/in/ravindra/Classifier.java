@@ -21,13 +21,13 @@ public class Classifier {
                 "src/main/resources/scene.arff");
         BufferedReader br = new BufferedReader(fileReader);
         double m[][] = new double[6][294];
-        double rawData[][] = new double[4815][294];
+        double rawData[][] = new double[14443][294];
         int index  = 0;
         String content;
         while ( (content = br.readLine()) != null) {
             parseLineAndStore(content, m,rawData, index++);
         }
-        /*for (int i =0; i < 4815 ;i++) {
+        /*for (int i =0; i < 14443 ;i++) {
             for (int j =0; j < 294 ;j++) {
                 System.out.print(rawData[i][j] + "  ");
             }
@@ -43,7 +43,7 @@ public class Classifier {
             }
             System.out.println();
         }*/
-        for(int i = 0; i < 4815; i++) {
+        for(int i = 0; i < 14443; i++) {
             step5(m, rawData[i]);
         }
         return m;
@@ -65,10 +65,10 @@ public class Classifier {
         for (int i =0; i < 6; i++) {
             classes[i] /= max;
         }
-        for (int i =0; i < 6; i++) {
+/*        for (int i =0; i < 6; i++) {
             System.out.print(classes[i] + " ");
-        }
-        System.out.println();
+        }*/
+//        System.out.println();
     }
 
     private static void divideMatrix(double[][] m) {
